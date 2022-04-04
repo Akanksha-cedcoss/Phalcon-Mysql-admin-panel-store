@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Store Phalcon</title>
+
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap core CSS -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        .table-striped>tbody>tr:nth-child(odd)>td,
+        .table-striped>tbody>tr:nth-child(odd)>th {
+            background-color: lightblue;
+        }
+
+        .table-striped>thead {
+            background-color: #dbac3d;
+        }
+
+        .errorMessage {
+            color: #D8000C;
+            background-color: #FFBABA;
+            border: 1px solid;
+            margin: 10px auto;
+            padding: 10px;
+            width: 300px;
+        }
+
+        .successMessage {
+            color: white;
+            background-color: green;
+            border: 1px solid;
+            margin: 10px auto;
+            padding: 10px;
+            height: auto;
+            word-wrap: break-word;
+            /* width: 10; */
+        }
+
+        .nav-item:hover,
+        .navbar-brand:hover {
+            background-color: lightblue;
+        }
+
+        .bd-placeholder-img {
+
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="">
+            <!-- navbar start -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a href="http://localhost:8080/index/index" class="navbar-brand">PriyaXstore</a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="http://localhost:8080/user/index" class="nav-item nav-link">Users</a>
+                            <a href="http://localhost:8080/product/index" class="nav-item nav-link">Products</a>
+                            <a href="http://localhost:8080/order/index" class="nav-item nav-link">Orders</a>
+                            <a href="http://localhost:8080/setting/index" class="nav-item nav-link">Settings</a>
+                            <?php echo $this->tag->linkTo(['setting/addRole', 'Add New Role', 'class' => 'nav-item nav-link']);
+                            echo $this->tag->linkTo(['setting/addComponent', 'Add New Component', 'class' => 'nav-item nav-link']);
+                            echo $this->tag->linkTo(['setting/addAcl', 'Add ACL', 'class' => 'nav-item nav-link']);
+                            ?>
+                            <div class="navbar-nav ms-auto">
+                                <?php
+                                echo isset($this->session->user) ? $this->tag->linkTo(['login/logout', 'Logout', 'class' => 'nav-item nav-link']) :
+                                    $this->tag->linkTo(['login/index', 'Login', 'class' => 'nav-item nav-link']);
+                                ?>
+
+                            </div>
+                            <form>
+                                <select id="dropdown" style="background-color:lightblue" name="lan" onchange="form.submit()">
+                                    <option value="en">English</option>
+                                    <option value="hindi">Hindi</option>
+                                    <option value="korean">Korean</option>
+                                </select>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar end -->
+        </header>
+
+
+        <?php echo $this->getContent();
+        echo PHP_EOL;
+        ?>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+<?php

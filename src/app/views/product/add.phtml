@@ -1,0 +1,83 @@
+<div class="container overfloe-hidden m-auto w-50 justify-content-center">
+    <div class="row alert alert-dangers">
+        <?php echo "<p>" . $this->getContent() . "</p>"; ?>
+    </div>
+    <div class="row">
+        <form method="post">
+            <fieldset>
+                <!-- Form Name -->
+                <?php echo '<legend class="h1 text-warning">' . $head . '</legend>'; ?>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="control-label" for="product_name">PRODUCT NAME</label>
+                    <div class="">
+                        <?php echo $this->tag->textField([
+                            "product_name",
+                            "placeholder" => "PRODUCT NAME",
+                            "class" => "form-control input-md",
+                            "value" => $product->name ??''
+                        ]); ?>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="control-label" for="product_description">PRODUCT DESCRIPTION</label>
+                    <div class="">
+                        <?php echo $this->tag->textField([
+                            "product_description",
+                            "placeholder" => "PRODUCT DESCRIPTION",
+                            "class" => "form-control input-md",
+                            "value" => $product->description ??''
+                        ]); ?>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="control-label" for="tags">Tags</label>
+                    <div class="">
+                        <?php echo $this->tag->textField([
+                            "tags",
+                            "placeholder" => "Category tags",
+                            "class" => "form-control input-md",
+                            "value" => $product->tags ??''
+                        ]); ?>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="control-label" for="price">Product Price</label>
+                    <div class="">
+                        <?php echo $this->tag->textField([
+                            "price",
+                            "placeholder" => "PRODUCT PRICE",
+                            "class" => "form-control input-md",
+                            "value" => $product->price ??''
+                        ]); ?>
+                    </div>
+                </div><!-- Text input-->
+                <div class="form-group">
+                    <label class="control-label" for="stock">STOCK</label>
+                    <div class="">
+                        <?php echo $this->tag->textField([
+                            "stock",
+                            "placeholder" => "STOCK ALERT",
+                            "class" => "form-control input-md",
+                            "value" => $product->stock ??''
+                        ]); ?>
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="">
+                        <?php echo $this->tag->submitButton([
+                            $head,
+                            "class" => "btn btn-primary"
+                        ]); ?>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>

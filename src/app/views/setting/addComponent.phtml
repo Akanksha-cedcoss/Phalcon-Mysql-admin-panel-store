@@ -1,0 +1,44 @@
+<div class="container m-auto w-50 overfloe-hidden">
+    <div class="alert alert-dangers">
+        <?php echo "<p>" . $this->getContent() . "</p>"; ?>
+    </div>
+
+    <form method="post">
+        <fieldset>
+            <!-- Form Name -->
+            <legend class="h1 text-warning">Add new Component</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="component">Component Name</label>
+                <div class="col-8">
+                    <?php echo $this->tag->textField([
+                        "component",
+                        "placeholder" => "NEW COMPONENT",
+                        "class" => "form-control input-md",
+                    ]); ?>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="action">Action Name</label>
+                <div class="col-8">
+                    <?php echo $this->tag->textField([
+                        "action",
+                        "placeholder" => "SEPRATE BY COMMA",
+                        "class" => "form-control input-md",
+                    ]); ?>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <div class="col-md-4">
+                    <?php echo $this->tag->submitButton([
+                        "Add Component",
+                        "class" => "btn btn-primary"
+                    ]); ?>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

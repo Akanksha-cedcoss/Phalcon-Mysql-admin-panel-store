@@ -1,0 +1,31 @@
+<?php include_once("orderMenu.php"); ?>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Zipcode</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($orders as $order) {
+                echo "<tr><td>" . $order->orders->order_id . "</td>
+            <td>" . $order->orders->customer_name . "</td>
+            <td>" . $order->orders->address . "</td>
+            <td>" . $order->orders->zipcode . "</td>
+            <td>" . $order->product_name . "</td>
+            <td>" . $order->orders->quantity . "</td>
+            <td>
+                <a href='http://localhost:8080/order/add/" . $order->orders->order_id . "'>Edit</a>
+                <a href='http://localhost:8080/order/delete/" . $order->orders->order_id . "' class='text-danger'>Delete</a>
+            </td>
+        </tr>";
+            } ?>
+        </tbody>
+    </table>
+</div>

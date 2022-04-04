@@ -1,0 +1,17 @@
+
+[2022-04-04T12:01:47+00:00][alert] Incorrect credentials entered by user.
+[2022-04-04T12:01:59+00:00][info] User logged in.user_id = 15
+[2022-04-04T12:02:48+00:00][alert] Incorrect credentials entered by user.
+[2022-04-04T12:02:58+00:00][info] User logged in.user_id = 15
+[2022-04-04T12:03:24+00:00][alert] Incorrect credentials entered by user.
+[2022-04-04T12:03:29+00:00][info] User logged in.user_id = 15
+[2022-04-04T12:03:57+00:00][alert] Incorrect credentials entered by user.
+[2022-04-04T12:04:02+00:00][warning] unknown user try to login user_id = 15
+[2022-04-04T12:04:07+00:00][info] User logged in.user_id = 1
+[2022-04-04T12:05:49+00:00][warning] unknown user try to login user_id = 15
+[2022-04-04T12:05:54+00:00][info] User logged in.user_id = 1
+[2022-04-04T12:09:10+00:00][info] User logged in.user_id = 1
+[2022-04-04T12:09:38+00:00][warning] unknown user try to login user_id = 15
+[2022-04-04T12:09:42+00:00][info] User logged in.user_id = 1
+[2022-04-04T12:09:50+00:00][info] User logged in.user_id = 1
+[2022-04-04T12:25:16+00:00][info] User logged in.user_id = 1

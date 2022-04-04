@@ -1,0 +1,85 @@
+<div class="container m-auto w-50 overfloe-hidden">
+    <div class="alert alert-dangers">
+        <?php echo "<p>" . $this->getContent() . "</p>"; ?>
+        <?php echo "<p>" . $this->response->getContent() . "</p>"; ?>
+    </div>
+
+    <form method="post">
+        <fieldset>
+            <!-- Form Name -->
+            <?php echo '<legend class="h1 text-warning">' . $head . '</legend>'; ?>
+            <!-- <legend class="h1 text-warning">Add new Order</legend> -->
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="customer_name">Customer NAME</label>
+                <div class="col-md-4">
+                <select name="product" id="product">
+                        <?php
+                        foreach ($users as $user) {
+                            echo "<option value='" . $user->name . "'>" . $user->name . "</option>";
+                        } ?>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="address">Address</label>
+                <div class="col-md-4">
+                    <?php echo $this->tag->textField([
+                        "address",
+                        "placeholder" => "ADDRESS",
+                        "class" => "form-control input-md",
+                        "value" => $order->address ?? ''
+                    ]); ?>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="zipcode">Zipcode</label>
+                <div class="col-md-4">
+                    <?php echo $this->tag->textField([
+                        "zipcode",
+                        "placeholder" => "Category tags",
+                        "class" => "form-control input-md",
+                        "value" => $order->zipcode ?? '' 
+                    ]); ?>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="price">Product Name</label>
+                <div class="col-md-4">
+                    <select name="product" id="product">
+                        <?php
+                        foreach ($products as $product) {
+                            echo "<option value='" . $product->product_id . "'>" . $product->name . "</option>";
+                        } ?>
+                    </select>
+
+                </div>
+            </div><!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="quantity">Quantity</label>
+                <div class="col-md-4">
+                    <?php echo $this->tag->textField([
+                        "quantity",
+                        "placeholder" => "PRODUCT QUANTITY",
+                        "class" => "form-control input-md",
+                        "value" => $order->quantity ?? ''
+                    ]); ?>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <div class="col-md-4">
+                    <?php echo $this->tag->submitButton([
+                        $head,
+                        "class" => "btn btn-primary"
+                    ]); ?>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

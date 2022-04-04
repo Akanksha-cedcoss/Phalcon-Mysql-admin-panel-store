@@ -1,0 +1,71 @@
+<div class="container m-auto w-50 overfloe-hidden">
+    <div class="alert alert-dangers">
+        <?php echo "<p>" . $this->getContent() . "</p>"; ?>
+        <?php echo "<p>" . $this->response->getContent() . "</p>"; ?>
+    </div>
+
+    <?php echo $this->tag->form("setting"); ?>
+    <fieldset>
+        <!-- Form Name -->
+        <legend class="h1 text-warning">Update Default Settings</legend>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="title">Title Optimization</label>
+            <div class="col-md-4">
+                <select name="title" id="title">
+                    <option <?php echo ($setting->title_optimization=='on')?'selected':''; ?>value="on">With tags</option>
+                    <option <?php echo ($setting->title_optimization=='on')?'':'selected'; ?> value="off">Without tags</option>
+                </select>
+
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="price">Price</label>
+            <div class="col-md-4">
+                <?php echo $this->tag->textField([
+                    "price",
+                    "placeholder" => "DEFAULT PRODUCT PRICE",
+                    "class" => "form-control input-md",
+                    "value" => $setting->price
+                ]); ?>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="stock">Stock</label>
+            <div class="col-md-4">
+                <?php echo $this->tag->textField([
+                    "stock",
+                    "placeholder" => "DEFAULT PRODUCT STOCK",
+                    "class" => "form-control input-md",
+                    "value" => $setting->stock
+                ]); ?>
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="zipcode">Zipcode</label>
+            <div class="col-md-4">
+                <?php echo $this->tag->textField([
+                    "zipcode",
+                    "placeholder" => "DEFAULT CUSTOMER ZIPCODE",
+                    "class" => "form-control input-md",
+                    "value" => $setting->zipcode
+                ]); ?>
+            </div>
+        </div>
+        <!-- Button -->
+        <div class="form-group">
+            <div class="col-md-4">
+                <?php echo $this->tag->submitButton([
+                    "Update setting",
+                    "class" => "btn btn-primary"
+                ]); ?>
+            </div>
+        </div>
+
+    </fieldset>
+    </form>
+</div>

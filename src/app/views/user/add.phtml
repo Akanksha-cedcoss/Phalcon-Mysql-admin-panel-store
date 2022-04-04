@@ -1,0 +1,59 @@
+<div class="container m-auto w-50 overfloe-hidden">
+    <div class="alert alert-dangers">
+        <?php echo "<p>" . $this->getContent() . "</p>"; ?>
+    </div>
+
+    <form method="post">
+        <fieldset>
+            <!-- Form Name -->
+            <legend class="h1 text-warning"><?php echo $head ?></legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">User Name</label>
+                <div class="col-md-4">
+                    <?php echo $this->tag->textField([
+                        "name",
+                        "placeholder" => "NAME OF USER",
+                        "class" => "form-control input-md",
+                        "value" => $user->name ??''
+                    ]); ?>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email">User E-mail</label>
+                <div class="col-md-4">
+                    <?php echo $this->tag->emailField([
+                        "email",
+                        "placeholder" => "E-Mail OF USER",
+                        "class" => "form-control input-md",
+                        "value" => $user->email ??''
+                    ]); ?>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class=" control-label" for="role">Select Role</label>
+                <div class="col-md-4">
+                    <select name="role" id="role">
+                        <?php
+                        foreach ($roles as $role) {
+                            echo "<option value='" . $role->role . "'>" . $role->role . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <div class="col-md-4">
+                    <?php echo $this->tag->submitButton([
+                        $head,
+                        "class" => "btn btn-primary"
+                    ]); ?>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

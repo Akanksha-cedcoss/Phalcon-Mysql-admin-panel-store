@@ -1,0 +1,27 @@
+<?php include_once("userMenu.php"); ?>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">User ID</th>
+                <th scope="col">User Name</th>
+                <th scope="col">User email</th>
+                <th scope="col">User Role</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user) {
+                echo "<tr><td>" . $user->id . "</td>
+            <td>" . $user->name . "</td>
+            <td>" . $user->email . "</td>
+            <td>" . $user->role . "</td>
+            <td>
+                <a href='http://localhost:8080/user/add/" . $user->id . "'>Edit</a>
+                <a href='http://localhost:8080/user/delete/" . $user->id . "' class='text-danger'>Delete</a>
+            </td>
+        </tr>";
+            } ?>
+        </tbody>
+    </table>
+</div>

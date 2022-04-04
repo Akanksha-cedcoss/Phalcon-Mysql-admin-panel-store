@@ -1,0 +1,33 @@
+<div class="container m-auto w-50 overfloe-hidden">
+    <div class="alert alert-dangers">
+        <?php echo "<p>" . $this->getContent() . "</p>"; ?>
+    </div>
+
+    <form method="post">
+        <fieldset>
+            <!-- Form Name -->
+            <legend class="h1 text-warning">Add new Role</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="price">Role Name</label>
+                <div class="col-md-4">
+                    <?php echo $this->tag->textField([
+                        "role",
+                        "placeholder" => "NEW ROLE",
+                        "class" => "form-control input-md",
+                    ]); ?>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <div class="col-md-4">
+                    <?php echo $this->tag->submitButton([
+                        "Add Role",
+                        "class" => "btn btn-primary"
+                    ]); ?>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

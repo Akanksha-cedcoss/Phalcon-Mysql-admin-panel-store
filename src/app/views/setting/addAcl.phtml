@@ -1,0 +1,48 @@
+<div class="container m-auto w-50 overfloe-hidden">
+    <div class="alert alert-dangers">
+        <?php echo "<p>" . $this->getContent() . "</p>"; ?>
+    </div>
+
+    <form method="post">
+        <fieldset class="col-8">
+            <!-- Form Name -->
+            <legend class="h1 text-warning">Add new ACL</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class=" control-label" for="component">Select Role</label>
+                <div class="col-md-4">
+                    <select name="role" id="role">
+                        <?php
+                        foreach ($roles as $role) {
+                            echo "<option value='" . $role->role . "'>" . $role->role . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <?php
+            foreach ($components as $component) {
+                $actions = explode(",", $component->actions);
+                $html = '';
+                foreach ($actions as $action) {
+                    $html .= '<input type="checkbox" name="check_list[]" value="' . $component->name . '->' . $action . '">
+                <label for="check_list[]">' . $action . '</label><br>';
+                }
+                echo '<div class="form-group bg-light">
+                <label class="col-6 control-label bg-warning" for="action">' . $component->name . '</label>
+                <div class="col-md-5">' . $html . '</div></div>';
+            }
+            ?>
+            <!-- Button -->
+            <div class="form-group">
+                <div class="col-md-4">
+                    <?php echo $this->tag->submitButton([
+                        "Grant Access",
+                        "class" => "btn btn-primary"
+                    ]); ?>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
